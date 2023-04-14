@@ -1,4 +1,4 @@
-vim.api.nvim_create_user_command("AutoFillhtmo", function()
+vim.api.nvim_create_user_command("AutoFillhtml", function()
     local bufnr = vim.api.nvim_get_current_buf() 
 
     vim.api.nvim_buf_set_lines(bufnr, 0, 12, false, { 
@@ -17,5 +17,24 @@ vim.api.nvim_create_user_command("AutoFillhtmo", function()
     })
 end, {})
 
+vim.api.nvim_create_user_command("AutoFillReact", function()
+    local bufnr = vim.api.nvim_get_current_buf() 
+
+    vim.api.nvim_buf_set_lines(bufnr, 0, 12, false, { 
+       "import React from 'react'",
+        " ",
+        "function () {",
+        "  return (",
+        "    <>",
+        " ",
+        "    </>",
+        "  )",
+        "}",
+        " ",
+        "export default " 
+    })
+end, {})
+
 -- TODO: Only run if the file is empty
 -- TODO: Make it only work certen file types
+-- TODO: Make AutoFillReact input the name of the file as the function name and expor
